@@ -108,6 +108,35 @@ h4,
     opacity: 1;
 }
 
+/* Mobile Menu Button */
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001;
+}
+
+.menu-btn span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #fff;
+    transition: var(--transition);
+}
+
+.menu-btn.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 .lang-switch {
     display: flex;
     align-items: center;
@@ -135,6 +164,65 @@ h4,
     color: #fff;
 }
 
+@media (max-width: 968px) {
+    .menu-btn {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--bg-dark);
+        border-left: 1px solid var(--glass-border);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0;
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .lang-switch {
+        margin-left: auto;
+        margin-right: 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .section {
+        padding: 6rem 0;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
 
 /* Hero Section */
 .hero-section {
@@ -362,6 +450,16 @@ h4,
     flex-direction: row-reverse;
 }
 
+@media (max-width: 968px) {
+
+    .info-section,
+    .info-section:nth-child(even) {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+}
+
 .info-content {
     flex: 1;
 }
@@ -396,6 +494,18 @@ h4,
     grid-template-columns: 2fr 1fr 1fr;
     gap: 4rem;
     margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .footer-info p {
+        margin: 0 auto;
+    }
 }
 
 .footer-info .logo {
